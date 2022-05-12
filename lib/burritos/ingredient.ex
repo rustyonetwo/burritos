@@ -6,12 +6,11 @@ defmodule Burritos.Ingredient do
 
   schema "ingredients" do
     field :name, :string
-    belongs_to :category, Burritos.Category
   end
 
-  def changeset(ingredient, params \\ %{}) do
+  def changeset(ingredient, params) do
     ingredient
-    |> cast(params, [:name, :category_name])
-    |> validate_required([:name, :category_name])
+    |> cast(params, [:name])
+    |> validate_required([:name])
   end
 end

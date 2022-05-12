@@ -1,16 +1,16 @@
 defmodule Burritos.Order do
   @moduledoc false
 
+  # import Ecto.Changeset
   use Ecto.Schema
-  import Ecto.Changeset
 
   schema "orders" do
-    has_one :burrito, Burritos.Burrito
+    has_many :burrito, Burritos.Burrito
+    timestamps(type: :utc_datetime_usec)
   end
 
-  def changeset(order, params \\ %{}) do
-    order
-    |> cast(params, [:burrito])
-    |> validate_required([:burrito])
-  end
+  # def changeset(order) do
+  #   order
+  #   |> put_time
+  # end
 end
