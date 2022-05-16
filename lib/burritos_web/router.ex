@@ -17,6 +17,10 @@ defmodule BurritosWeb.Router do
   scope "/", BurritosWeb do
     pipe_through :browser
     get "/heading", PageController, :index
+    get "/show", PageController, :show
+    post "/new", PageController, :new
+    post "/remove", PageController, :remove
+    get "/list", PageController, :list
   end
 
   # Other scopes may use custom stacks.
